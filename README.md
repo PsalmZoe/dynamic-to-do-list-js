@@ -1,15 +1,16 @@
 # Dynamic To-Do List (JavaScript)
 
 This project is a simple yet interactive **To-Do List Application** built using **HTML**, **CSS**, and **JavaScript**.  
-It demonstrates advanced DOM manipulation by allowing users to **add**, **display**, and **remove** tasks dynamically.
+It demonstrates **advanced DOM manipulation** and **Local Storage** integration, allowing users to **add**, **display**, **remove**, and **persist** tasks across browser sessions.
 
 ---
 
 ## Features
 - **Add Tasks**: Users can type in a task and add it by clicking the button or pressing the Enter key.
-- **Remove Tasks**: Each task has a dedicated "Remove" button to delete it from the list.
+- **Remove Tasks**: Each task has a "Remove" button to delete it from the list.
 - **Keyboard Support**: Pressing Enter in the input field will also add the task.
-- **Responsive Design**: The layout adjusts nicely for different screen sizes.
+- **Persistent Storage**: Tasks are saved in the browser's Local Storage and remain after refreshing or closing the page.
+- **Responsive Design**: Clean, centered layout that works on various screen sizes.
 
 ---
 
@@ -18,8 +19,30 @@ dynamic-to-do-list-js/
 │
 ├── index.html # Main HTML structure
 ├── styles.css # Styling for the application
-├── script.js # JavaScript for DOM manipulation
+├── script.js # JavaScript for DOM manipulation & Local Storage
 └── README.md # Project documentation
+
+---
+
+## Technologies Used
+- **HTML5** – Structure of the app
+- **CSS3** – Styling and layout
+- **JavaScript (ES6)** – Functionality, DOM manipulation, and Local Storage
+
+---
+
+## How It Works
+1. **Page Load**:
+   - The script waits for the `DOMContentLoaded` event before running.
+   - The `loadTasks()` function retrieves saved tasks from Local Storage and renders them in the DOM.
+2. **Adding Tasks**:
+   - The `addTask()` function creates a `<li>` element for the task and appends a **Remove** button using `classList.add('remove-btn')`.
+   - If the task is added by the user, it is saved to Local Storage.
+3. **Removing Tasks**:
+   - Clicking the Remove button deletes the task from the DOM and updates Local Storage immediately.
+4. **Persistence**:
+   - All tasks are stored in Local Storage in JSON format (`localStorage.setItem('tasks', JSON.stringify(tasks))`).
+   - Tasks are automatically restored on the next visit.
 
 ---
 
